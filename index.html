@@ -18,7 +18,6 @@
         --accent-color: #d4a373;
         --text-dark: #4a4a4a;
         --white: #ffffff;
-        --leaf-color: rgba(212, 163, 115, 0.2); /* Barglar rangi */
       }
 
       * {
@@ -35,61 +34,13 @@
         display: flex;
         justify-content: center;
         min-height: 100vh;
-        overflow-x: hidden; /* Animatsiyalar chetdan chiqib ketmasligi uchun */
-        position: relative;
       }
-
-      /* --- Animatsiya Qatlami --- */
-      .bg-animation {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        pointer-events: none;
-      }
-
-      .leaf {
-        position: absolute;
-        display: block;
-        list-style: none;
-        width: 25px;
-        height: 25px;
-        background: var(--leaf-color);
-        border-radius: 50% 0 50% 0; /* Barg shakli */
-        animation: animate 20s linear infinite;
-        bottom: -150px;
-      }
-
-      @keyframes animate {
-        0% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-1000px) rotate(720deg);
-          opacity: 0;
-        }
-      }
-
-      /* Har xil vaqt va joyda chiqishi uchun */
-      .leaf:nth-child(1) { left: 25%; width: 20px; height: 20px; animation-delay: 0s; }
-      .leaf:nth-child(2) { left: 10%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 12s; }
-      .leaf:nth-child(3) { left: 70%; width: 25px; height: 25px; animation-delay: 4s; }
-      .leaf:nth-child(4) { left: 40%; width: 18px; height: 18px; animation-delay: 0s; animation-duration: 18s; }
-      .leaf:nth-child(5) { left: 65%; width: 12px; height: 12px; animation-delay: 0s; }
-      .leaf:nth-child(6) { left: 75%; width: 30px; height: 30px; animation-delay: 3s; }
-      .leaf:nth-child(7) { left: 35%; width: 22px; height: 22px; animation-delay: 7s; }
-      .leaf:nth-child(8) { left: 50%; width: 15px; height: 15px; animation-delay: 15s; animation-duration: 45s; }
-      /* -------------------------- */
 
       .container {
         width: 100%;
         max-width: 420px;
         padding: 50px 20px;
         text-align: center;
-        z-index: 1;
       }
 
       .profile {
@@ -112,6 +63,19 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      .img-container::after {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border: 1px solid var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        pointer-events: none;
       }
 
       h1 {
@@ -187,17 +151,6 @@
     </style>
   </head>
   <body>
-    <div class="bg-animation">
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-    </div>
-
     <div class="container">
       <div class="profile">
         <div class="img-container">
@@ -211,8 +164,8 @@
         </div>
         <h1>Jamila Zokirjonovna</h1>
         <p class="bio">
-          shaxsiy rivojlanish mentori. Travelcoach — sayohatlar orqali
-          ruhiyatingizni davolash yoʻnalishida yordam beraman.
+          shaxsiy rivojlanish mentori. Travelcoach-sayohatlar orqaliy
+          ruhiyatingiznizni davolash yoʻnalishida yordam beraman
         </p>
       </div>
 
